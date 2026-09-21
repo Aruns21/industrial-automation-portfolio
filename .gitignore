@@ -6,3 +6,14 @@ venv/
 .env
 .DS_Store
 linkedin_post_draft.md
+
+# CODESYS user/generated files
+*.opt
+*.~u
+*.bootinfo
+*.bootinfo_guids
+*.compileinfo
+*_project.precompilecache
+
+# Abandoned OpenPLC attempt, not part of the public deliverable
+stage2-openplc/

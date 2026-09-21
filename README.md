@@ -13,6 +13,11 @@ in Automation Technology at Technische Hochschule Deggendorf.
 scan cycle, state machine, and IEC 61131-3-style timers for a tank
 fill → heat → drain sequence.
 
+**Stage 2 (Control ↔ Supervisory level): done.** [Real PLC runtime](stage2-codesys/):
+the same sequence, written in Structured Text, running live on CODESYS,
+exposed over real Modbus TCP and verified with an independent Python
+client.
+
 More stages will be added here as they're completed. Each one builds on the
 previous one's output rather than standing alone, so the repo's history
 tells one continuous story rather than a set of disconnected demos.
