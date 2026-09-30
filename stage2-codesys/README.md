@@ -24,8 +24,24 @@ exposed over real Modbus TCP.
 ## Files
 
 - `Stage2_TankSequence.project`: the CODESYS project (open with CODESYS
-  V3.5). Contains the PLC_PRG structured text program and the Modbus TCP
-  Server device configuration.
+  V3.5). Contains the PLC_PRG structured text program, the TankSequence_LD
+  ladder diagram program, and the Modbus TCP Server device configuration.
+
+## Same logic, second language: Ladder Diagram
+
+The same tank sequence also exists as `TankSequence_LD`, a Ladder Diagram
+program in the same project. It implements identical behavior to PLC_PRG,
+including both TON timers, but the state memory design is simplified: instead
+of separate step flags, the InletValve, Heater, and DrainValve outputs
+themselves (via Set and Reset coils) double as the state memory, since they
+are mutually exclusive by design. This cuts the rung count and keeps the
+logic closer to how a plant electrician reading a ladder printout would
+expect it to look.
+
+TankSequence_LD is not currently called by MainTask. It compiles cleanly on
+its own and is wired to a second IEC task (LadderTask) gated behind a Bool
+that is never set to TRUE, so it stays structurally present without
+conflicting with PLC_PRG's live control of the same I/O.
 
 ## Why CODESYS
 

@@ -6,6 +6,7 @@ venv/
 .env
 .DS_Store
 linkedin_post_draft.md
+linkedin_post_ladder_draft.md
 
 # CODESYS user/generated files
 *.opt
